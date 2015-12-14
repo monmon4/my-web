@@ -1,19 +1,13 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @document.title %>
 </p>
 
 <p>
-  <strong>Path:</strong>
-  <%= @document.path %>
-</p>
-
-<p>
   <strong>User:</strong>
-  <%= @document.user %>
+  <%= @document.user.name %>
 </p>
-
-<%= link_to 'Edit', edit_document_path(@document) %> |
+<div id="slides">
+<%= render @document.slides %>
+</div>
 <%= link_to 'Back', documents_path %>

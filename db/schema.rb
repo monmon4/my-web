@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214161656) do
+ActiveRecord::Schema.define(version: 20151214195007) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "title"
@@ -35,10 +35,11 @@ ActiveRecord::Schema.define(version: 20151214161656) do
 
   create_table "slides", force: :cascade do |t|
     t.string   "path"
-    t.string   "like"
+    t.integer  "like"
     t.integer  "document_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "number"
   end
 
   add_index "slides", ["document_id"], name: "index_slides_on_document_id"

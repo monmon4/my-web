@@ -1,22 +1,20 @@
 Rails.application.routes.draw do
-  
+
   resources :sessions , only: [:new, :create, :destroy]
   get "/login" => "sessions#new", as: "login"
   delete "/logout" => "sessions#destroy", as: "logout"
+
+  resources :documents ,only: [:index, :new, :create, :destroy, :show] do
+
+    resources :slides ,only: [:create, :destroy]
+  end
 
   get 'comments/create'
 
   get 'comments/destroy'
 
-  get 'slides/create'
 
-  get 'slides/destroy'
-
-  get 'slide/create'
-
-  get 'slide/destroy'
-
-  resources :documents
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

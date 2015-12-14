@@ -10,6 +10,7 @@ class DocumentsController < ApplicationController
   # GET /documents/1
   # GET /documents/1.json
   def show
+    @slides = @document.slides
   end
 
   # GET /documents/new
@@ -17,9 +18,6 @@ class DocumentsController < ApplicationController
     @document = Document.new
   end
 
-  # GET /documents/1/edit
-  def edit
-  end
 
   # POST /documents
   # POST /documents.json
@@ -37,19 +35,6 @@ class DocumentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /documents/1
-  # PATCH/PUT /documents/1.json
-  def update
-    respond_to do |format|
-      if @document.update(document_params)
-        format.html { redirect_to @document, notice: 'Document was successfully updated.' }
-        format.json { render :show, status: :ok, location: @document }
-      else
-        format.html { render :edit }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # DELETE /documents/1
   # DELETE /documents/1.json
