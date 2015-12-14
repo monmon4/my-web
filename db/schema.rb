@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214195007) do
+ActiveRecord::Schema.define(version: 20151214220128) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "title"
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20151214195007) do
     t.integer  "slide_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "comments", ["slide_id"], name: "index_comments_on_slide_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "documents", force: :cascade do |t|
     t.string   "title"
@@ -43,6 +45,14 @@ ActiveRecord::Schema.define(version: 20151214195007) do
   end
 
   add_index "slides", ["document_id"], name: "index_slides_on_document_id"
+
+  create_table "slides_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "slide_id"
+  end
+
+  add_index "slides_users", ["slide_id"], name: "index_slides_users_on_slide_id"
+  add_index "slides_users", ["user_id"], name: "index_slides_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

@@ -1,5 +1,9 @@
 class SlidesController < ApplicationController
-	before_action :set_slide, only: [:destroy]
+	before_action :set_slide, only: [:destroy, :show]
+
+  def show
+  end
+
   def create
   end
 

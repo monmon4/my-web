@@ -1,6 +1,6 @@
 <div class="slide">
   <div>
-    <a href="/documents"><%= image_tag slide.path , alt: "#{slide.number}", size: "100x50"%> <%=  "#{slide.number} | likes:#{slide.like}"%></a>
+    <a href=<%="/documents/#{@document.id}/slides/#{slide.id}"%>><%= image_tag slide.path , alt: "#{slide.number}", size: "100x50"%> <%=  "#{slide.number} | likes:#{slide.like}"%></a>
     <% if current_user == @document.user %>
     <%= link_to "delete", [@document, slide], method: :delete %>
     <%end%>

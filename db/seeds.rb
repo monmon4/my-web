@@ -5,15 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Slide.destroy_all
-number = 1
-first_doc = Document.find_by(id: 1)
-first_doc.slides.create(
-	[{path: "#{first_doc.path}_#{number}",like: 0, number: number},
-	 {path: "#{first_doc.path}_#{number+1}",like: 0, number: number+1},
-	 {path: "#{first_doc.path}_#{number+2}",like: 0, number: number+2}])
-first_doc = Document.find_by(id: 2)
-first_doc.slides.create(
-	[{path: "#{first_doc.path}_#{number}",like: 0, number: number},
-	 {path: "#{first_doc.path}_#{number+1}",like: 0, number: number+1},
-	 {path: "#{first_doc.path}_#{number+2}",like: 0, number: number+2}])
+Commento = [{title: "hello", user_id: 1, content: "hello world"},
+{title: "bla bla", user_id: 2, content: "u r blaa blaain"},
+{title: "sounds fun", user_id: 2, content: "ha ha ha"}]
+Commento2 = [{title: "helloha", user_id: 1, content: "helloha world"},
+{title: "bla blaha", user_id: 2, content: "u r blaa blaahain"},
+{title: "sounds fun ha", user_id: 2, content: "ha ha haha"}]
+Slide.where(like: 2).each do |slide|
+	slide.comments.create(Commento)
+end
+Slide.where(like: 1).each do |slide|
+	slide.comments.create(Commento2)
+end
