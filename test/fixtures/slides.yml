@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  path: MyString
+  like: MyString
+  document_id: 
+
+two:
+  path: MyString
+  like: MyString
+  document_id: 
