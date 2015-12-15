@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   resources :documents ,only: [:index, :new, :create, :destroy, :show] do
 
-    resources :slides ,only: [:show, :create, :destroy] do
+    resources :comments ,only: [:create, :destroy]
+    resources :slides ,only: [:show, :create, :destroy, :update] do
 
       resources :comments ,only: [:create, :destroy]
     end

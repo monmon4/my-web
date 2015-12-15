@@ -5,15 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Commento = [{title: "hello", user_id: 1, content: "hello world"},
-{title: "bla bla", user_id: 2, content: "u r blaa blaain"},
-{title: "sounds fun", user_id: 2, content: "ha ha ha"}]
-Commento2 = [{title: "helloha", user_id: 1, content: "helloha world"},
-{title: "bla blaha", user_id: 2, content: "u r blaa blaahain"},
-{title: "sounds fun ha", user_id: 2, content: "ha ha haha"}]
-Slide.where(like: 2).each do |slide|
-	slide.comments.create(Commento)
-end
-Slide.where(like: 1).each do |slide|
-	slide.comments.create(Commento2)
-end
+Commento = [{title: "hellya", user_id: 1, content: "hello world"},
+{title: "bla bla ya", user_id: 2, content: "u r blaa blaain"},
+{title: "sounds funya", user_id: 2, content: "ha ha ha"}]
+Commento2 = [{title: "helloha ya", user_id: 1, content: "helloha world"},
+{title: "bla blaha ya", user_id: 2, content: "u r blaa blaahain"},
+{title: "sounds fun ha ya", user_id: 2, content: "ha ha haha"}]
+Document.find_by(id: 2).comments.create(Commento)
+Document.find_by(id: 1).comments.create(Commento)

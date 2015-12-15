@@ -1,1 +1,13 @@
-<%= render @slide.comments %>
+<%= image_tag @slide.path, alt: @slide.number, size: "700x350"%>
+<br/>
+likes:<%= @slide.like %> |
+<% if current_user.slides.find_by(id: @slide.id)
+link = "unlike"
+else
+link = "like"
+end%>
+<%= link_to link, document_slide_path, method: :put %>
+
+<%= render @slide.comments.order(created_at: :desc) %>
+
+<%= render 'comments/form' %>

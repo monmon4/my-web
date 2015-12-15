@@ -1,8 +1,13 @@
 <div class="comment">
   <div>
     <%= content_tag :span, "#{comment.user.name} | #{comment.title} (#{time_ago_in_words comment.created_at} ago)", class: "comment-title"%>
+    <% if @slide != nil %>
     <% if current_user == @slide.document.user || current_user == comment.user %>
     <%= link_to "delete", [@slide.document, @slide, comment], method: :delete %>
+    <%end%>
+    <%else if current_user == @document.user || current_user == comment.user %>
+    <%= link_to "delete", [@document, @slide, comment], method: :delete %>
+    <%end%>
     <%end%>
     <br/>
   </div>
